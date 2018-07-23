@@ -1,0 +1,7 @@
+C:/Test/firmatacpp/CMakeFiles/firmatacpp.dir
+C:/Test/firmatacpp/CMakeFiles/simple_example.dir
+C:/Test/firmatacpp/CMakeFiles/ALL_BUILD.dir
+C:/Test/firmatacpp/CMakeFiles/ZERO_CHECK.dir
+C:/Test/firmatacpp/vendor/serial/CMakeFiles/serial.dir
+C:/Test/firmatacpp/vendor/serial/CMakeFiles/serial_example.dir
+C:/Test/firmatacpp/vendor/serial/CMakeFiles/ALL_BUILD.dir
