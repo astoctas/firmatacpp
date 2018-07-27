@@ -275,10 +275,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="include\firmstepper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Test\firmatacpp\ZERO_CHECK.vcxproj">
-      <Project>{CD7DD49F-8A66-380D-A33E-91DA0BAA3F14}</Project>
-      <Name>ZERO_CHECK</Name>
-    </ProjectReference>
     <ProjectReference Include="C:\Test\firmatacpp\vendor\serial\serial.vcxproj">
       <Project>{EE2C7E68-5904-3E0B-8469-4410A19EB6CA}</Project>
       <Name>serial</Name>
