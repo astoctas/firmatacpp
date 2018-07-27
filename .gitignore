@@ -2,3 +2,6 @@
 /.vs
 /Release
 *.tlog
+/firmatacpp.dir
+/simple_example.dir
+/Win32
