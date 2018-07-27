@@ -13,6 +13,9 @@
     <ClCompile Include="interfaz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\firmstepper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Test\firmatacpp\include\firmata_constants.h">
@@ -37,6 +40,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="interfaz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\firmstepper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

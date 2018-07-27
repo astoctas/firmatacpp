@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "windows.h"
 #include "firmata.h"
 #include "firmserial.h"
 
@@ -19,7 +19,8 @@ int main(int argc, const char* argv[])
 	std::vector<firmata::PortInfo> ports = firmata::FirmSerial::listPorts();
 	firmata::Firmata<firmata::Base, firmata::I2C>* f = NULL;
 	firmata::FirmSerial* serialio;
-
+	/*
+	
 	for (auto port : ports) {
 		std::cout << port.port << std::endl;
 
@@ -53,6 +54,9 @@ int main(int argc, const char* argv[])
 	if (f == NULL || !f->ready()) {
 		return 1;
 	}
+	*/
+	serialio = new firmata::FirmSerial("COM9");
+	f = new firmata::Firmata<firmata::Base, firmata::I2C>(serialio);
 
 	try {
 		f->setSamplingInterval(100);
@@ -62,26 +66,33 @@ int main(int argc, const char* argv[])
 		std::cout << f->minor_version << std::endl;
 
 		f->pinMode(2, MODE_INPUT);
-
+		Sleep(10);
 		f->reportAnalog(0, 1);
+		Sleep(10);
 		f->reportAnalog(1, 1);
+		Sleep(10);
 
 		f->reportDigital(0, 1);
-		f->configI2C(0);
-		f->reportI2C(8, FIRMATA_I2C_REGISTER_NOT_SPECIFIED, 6);
+		Sleep(10);
+		//f->configI2C(0);
+		Sleep(10);
+		//f->reportI2C(8, FIRMATA_I2C_REGISTER_NOT_SPECIFIED, 6);
+		Sleep(10);
 
 		while (true) {
 			f->parse();
 			int a0 = f->analogRead("A0");
 			int a1 = f->analogRead("A1");
 			int pin2 = f->digitalRead(2);
-			std::vector<uint8_t> i2c = f->readI2C(8);
+			//std::vector<uint8_t> i2c = f->readI2C(8);
 			std::string s = "";
+			/*
 			for (auto byte = i2c.begin(); byte < i2c.end(); ++byte) {
 				s += (char)*byte;
 			}
+			*/
 
-			std::cout << a0 << ", " << a1 << ", " << pin2 <<  ", " << s << std::endl;
+			std::cout << "REport: " << a0 << ", " << a1 << ", " << pin2 <<  ", " << s << std::endl;
 		};
 
 		delete f;
