@@ -264,7 +264,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Test\firmatacpp\src\firmbase.cpp" />
     <ClCompile Include="C:\Test\firmatacpp\src\firmi2c.cpp" />
     <ClCompile Include="C:\Test\firmatacpp\src\firmserial.cpp" />
-    <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="src\firmstepper.cpp" />
     <ClInclude Include="C:\Test\firmatacpp\include\firmata_constants.h" />
     <ClInclude Include="C:\Test\firmatacpp\include\firmata.h" />
@@ -274,7 +273,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Test\firmatacpp\include\firmserial.h" />
     <ClInclude Include="C:\Test\firmatacpp\firmatacpp_export.h" />
     <ClInclude Include="include\firmstepper.h" />
-    <ClInclude Include="interfaz.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Test\firmatacpp\ZERO_CHECK.vcxproj">

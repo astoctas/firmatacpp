@@ -10,9 +10,6 @@
     <ClCompile Include="C:\Test\firmatacpp\src\firmserial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="interfaz.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\firmstepper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,9 +34,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Test\firmatacpp\firmatacpp_export.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="interfaz.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\firmstepper.h">
