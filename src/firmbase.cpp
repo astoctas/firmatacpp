@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 
+using namespace std;
+
 namespace firmata {
 
 	Base::Base(FirmIO *firmIO)
@@ -156,6 +158,9 @@ namespace firmata {
 		std::vector<uint8_t> new_data = m_firmIO->read(FIRMATA_MSG_LEN);
 		std::vector<uint8_t> parse_buffer(saved_buffer);
 		parse_buffer.insert(parse_buffer.end(), new_data.begin(), new_data.end());
+
+		//std::cout << new_data.size() << " : " << parse_buffer.size() << std::endl;
+
 		if (parse_buffer.size() == 0) return 0;
 
 		bool interrupted_command = false;
@@ -265,6 +270,9 @@ namespace firmata {
 			else if (num_commands && num_commands == completed_commands) {
 				savePartialBuffer(parse_buffer.begin() + i + 1, parse_buffer.end());
 				return last_completed;
+			}
+			else {
+				saved_buffer.clear();
 			}
 		}
 	}
@@ -445,5 +453,10 @@ namespace firmata {
 //				awaitSysexResponse(FIRMATA_PIN_STATE_RESPONSE, 100);
 			}
 		}
+	}
+
+	t_pin Base::getPin(uint8_t pin) {
+		if (pin <= 128)
+			return pins[pin];
 	}
 }

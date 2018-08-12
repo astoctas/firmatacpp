@@ -1,34 +1,13 @@
 #include "firmstepper.h"
 
+#include <iostream>
+
+
 namespace firmata {
-	Stepper::Stepper(FirmIO* firmIO) : Base(firmIO) {};
-	Stepper::~Stepper() {};
-
-	/*
-	STEPPER = {
-	TYPE: {
-	DRIVER: 1,
-	TWO_WIRE: 2,
-	THREE_WIRE: 3,
-	FOUR_WIRE: 4,
-	},
-	STEP_SIZE: {
-	WHOLE: 0,
-	HALF: 1
-	},
-	RUN_STATE: {
-	STOP: 0,
-	ACCEL: 1,
-	DECEL: 2,
-	RUN: 3,
-	},
-	DIRECTION: {
-	CCW: 0,
-	CW: 1,
-	},
+	Stepper::Stepper(FirmIO* firmIO) : Base(firmIO) {
 	};
-	*/
 
+	Stepper::~Stepper() {};
 
 	/**
 	* Asks the arduino to configure a stepper motor with the given config to allow asynchronous control of the stepper
@@ -47,7 +26,6 @@ namespace firmata {
 		uint8_t stepsPerRev_msb = FIRMATA_MSB(stepsPerRev);
 
 		sysexCommand({ FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_CONFIG, deviceNum, type, stepsPerRev_lsb, stepsPerRev_msb, dirOrMotor1Pin, dirOrMotor2Pin, motorPin3, motorPin4 });
-
 	};
 
 	/**
@@ -78,8 +56,21 @@ namespace firmata {
 		uint8_t decel_msb = FIRMATA_MSB(decel);
 
 		sysexCommand({ FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_STEP, deviceNum, direction, steps_lsb, steps_msb, steps_msb2, speed_lsb, speed_msb, accel_lsb, accel_msb, decel_lsb, decel_msb });
-
 	}
+
+
+	bool Stepper::handleSysex(uint8_t command, std::vector<uint8_t> data)
+	{
+		if (command == FIRMATA_STEPPER_REQUEST) {
+
+			uint8_t deviceNum = data[0];
+			finishStepperCallback(deviceNum, this);
+
+			return true;
+		}
+		return false;
+	}
+
 
 
 }

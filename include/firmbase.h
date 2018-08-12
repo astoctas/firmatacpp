@@ -42,6 +42,8 @@ namespace firmata {
 		void reportDigital(uint8_t port, uint8_t enable = 1);
 		void setSamplingInterval(uint32_t intervalms);
 
+		t_pin getPin(uint8_t pin);
+
 	protected:
 		virtual bool handleSysex(uint8_t command, std::vector<uint8_t> data);
 		virtual bool handleString(std::string data);
