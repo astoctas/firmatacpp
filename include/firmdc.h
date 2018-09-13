@@ -9,7 +9,7 @@
 #include <functional>
 using namespace std;
 
-#define FIRMATA_DC_REQUEST		0x52
+#define FIRMATA_DC_REQUEST		0x02
 #define FIRMATA_DC_CONFIG		0x00
 #define FIRMATA_DC_ON			0x01
 #define FIRMATA_DC_OFF			0x02

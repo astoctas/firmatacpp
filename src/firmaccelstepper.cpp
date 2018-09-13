@@ -13,46 +13,32 @@ namespace firmata {
 
 	AccelStepper::~AccelStepper() {};
 
-	/**
-	* Asks the arduino to configure a stepper motor with the given config to allow asynchronous control of the stepper
-	* @param {number} deviceNum Device number for the stepper (range 0-5, expects steppers to be setup in order from 0 to 5)
-	* @param {number} type One of this.STEPPER.TYPE.*: 
-	  DRIVER: 1,
-      TWO_WIRE: 2,
-      THREE_WIRE: 3,
-      FOUR_WIRE: 4
-	* @param {number} stepSize: 
-		WHOLE: 0,
-		HALF: 1
-	* @param {number} stepOrMotor1Pin If using EasyDriver type stepper driver, this is direction pin, otherwise it is motor 1 pin
-	* @param {number} dirOrMotor2Pin If using EasyDriver type stepper driver, this is step pin, otherwise it is motor 2 pin
-	* @param {number} [motorPin3] Only required if type == this.STEPPER.TYPE.FOUR_WIRE
-	* @param {number} [motorPin4] Only required if type == this.STEPPER.TYPE.FOUR_WIRE
-	*/
-
-	void AccelStepper::configStepper(uint8_t deviceNum, uint8_t type, uint8_t stepSize, uint8_t dirOrMotor1Pin, uint8_t dirOrMotor2Pin, uint8_t motorPin3, uint8_t motorPin4, uint8_t enablePin) {
+	void AccelStepper::configStepper(uint8_t deviceNum, uint8_t type, uint8_t stepSize, uint8_t stepOrMotor1Pin, uint8_t dirOrMotor2Pin, uint8_t motorOrEnablePin3, uint8_t motorOrInvertPin4, uint8_t enablePin, uint8_t invertPins) {
 		
 		uint8_t iface = ((type & 0x07) << 4) | ((stepSize & 0x07) << 1);
 
-		if (enablePin) {
+		if (type == 1 && motorOrEnablePin3) {
+			iface = iface | 0x01;
+		} else if (enablePin) {
 			iface = iface | 0x01;
 		}
 
-		std::vector<uint8_t> data = { FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_CONFIG, deviceNum, iface, dirOrMotor1Pin, dirOrMotor2Pin };
-		if (motorPin3) data.push_back(motorPin3);
-		if (motorPin4) data.push_back(motorPin4);
+		std::vector<uint8_t> data = { FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_CONFIG, deviceNum, iface, stepOrMotor1Pin, dirOrMotor2Pin };
+		if (motorOrEnablePin3) data.push_back(motorOrEnablePin3);
+		if (motorOrInvertPin4) data.push_back(motorOrInvertPin4);
 		if (enablePin) data.push_back(enablePin);
+		if (invertPins) data.push_back(invertPins);
 
 		sysexCommand(data);
 	};
 
 	void AccelStepper::setAccelStepper(uint8_t deviceNum, double accel) {
-		uint8_t* encoded = encodeCustomFloat(accel);
+		const uint8_t* encoded = encodeCustomFloat(accel);
 		sysexCommand({ FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_ACCEL, deviceNum, encoded[0], encoded[1], encoded[2], encoded[3] });
 	}
 
 	void AccelStepper::setSpeedStepper(uint8_t deviceNum, double speed) {
-		uint8_t* encoded = encodeCustomFloat(speed);
+		const uint8_t* encoded = encodeCustomFloat(speed);
 		sysexCommand({ FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_SPEED, deviceNum, encoded[0], encoded[1], encoded[2], encoded[3] });
 	}
 
@@ -60,32 +46,25 @@ namespace firmata {
 		sysexCommand({ FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_STOP, deviceNum });
 	}
 
-	void AccelStepper::enablePinsStepper(uint8_t deviceNum, uint8_t enable1, uint8_t enable2)
+	void AccelStepper::enableOutputsStepper(uint8_t deviceNum)
 	{
-		sysexCommand({ FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_ENABLE_PINS, deviceNum, enable1, enable2 });
+		sysexCommand({ FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_ENABLE, deviceNum, 0x01 });
+	}
+
+
+	void AccelStepper::disableOutputsStepper(uint8_t deviceNum)
+	{
+		sysexCommand({ FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_ENABLE, deviceNum, 0x00 });
 	}
 
 	uint8_t AccelStepper::getStatus(uint8_t deviceNum) {
 		return status[deviceNum];
 	}
 
-	/**
-	* Asks the arduino to move a stepper a number of steps at a specific speed
-	* (and optionally with and acceleration and deceleration)
-	* speed is in units of .01 rad/sec
-	* accel and decel are in units of .01 rad/sec^2
-	* TODO: verify the units of speed, accel, and decel
-	* @param {number} deviceNum Device number for the stepper (range 0-5)
-	* @param {number} direction One of this.STEPPER.DIRECTION.*
-	* @param {number} steps Number of steps to make
-	* @param {number} speed
-	* @param {number|function} accel Acceleration or if accel and decel are not used, then it can be the callback
-	* @param {number} [decel]
-	*/
-
 	void AccelStepper::stepStepper(uint8_t deviceNum, int32_t steps) {
 		status[deviceNum] = 1;
-		uint8_t* encoded = encode32BitSignedInteger(steps);
+		const uint8_t* encoded = encode32BitSignedInteger(steps);
+		enableOutputsStepper(deviceNum);
 		sysexCommand({ FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_STEP, deviceNum, encoded[0], encoded[1], encoded[2], encoded[3], encoded[4] });
 	}
 
@@ -98,8 +77,8 @@ namespace firmata {
 
 			if (stepCommand == FIRMATA_STEPPER_MOVE_COMPLETE) {
 				uint8_t deviceNum = data[1];
+				disableOutputsStepper(deviceNum);
 				status[deviceNum] = 0;
-
 			}
 
 
@@ -108,8 +87,8 @@ namespace firmata {
 		return false;
 	}
 
-	uint8_t* AccelStepper::encode32BitSignedInteger(int32_t data) {
-		uint8_t encoded[5] = {};
+	const uint8_t* AccelStepper::encode32BitSignedInteger(int32_t data) {
+		static uint8_t encoded[5] = {};
 		uint8_t negative = data < 0;
 
 		uint32_t d = abs((long)data);
@@ -127,8 +106,8 @@ namespace firmata {
 		return encoded;
 	}
 
-	uint8_t* AccelStepper::encodeCustomFloat(double input) {
-		uint8_t encoded[4] = {};
+	const uint8_t* AccelStepper::encodeCustomFloat(double input) {
+		static uint8_t encoded[4] = {};
 		uint8_t exponent = 0;
 		uint8_t sign = input < 0 ? 1 : 0;
 

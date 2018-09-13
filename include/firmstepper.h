@@ -24,7 +24,6 @@ namespace firmata {
 
 		void configStepper(uint8_t deviceNum, uint8_t type, uint16_t stepsPerRev, uint8_t dirOrMotor1Pin, uint8_t dirOrMotor2Pin, uint8_t motorPin3, uint8_t motorPin4);
 		void stepStepper(uint8_t deviceNum, uint8_t direction, uint32_t steps, uint16_t speed, uint16_t accel, uint16_t decel);
-		function<void(int, firmata::Base*)> finishStepperCallback;
 	protected:
 		virtual bool handleSysex(uint8_t command, std::vector<uint8_t> data);
 

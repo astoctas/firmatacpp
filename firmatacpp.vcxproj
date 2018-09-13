@@ -265,6 +265,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="src\firmbase.cpp" />
     <ClCompile Include="src\firmdc.cpp" />
     <ClCompile Include="src\firmi2c.cpp" />
+    <ClCompile Include="src\firmlcd.cpp" />
     <ClCompile Include="src\firmserial.cpp" />
     <ClCompile Include="src\firmstepper.cpp" />
     <ClInclude Include="firmatacpp_export.h" />
@@ -275,6 +276,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="include\firmbase.h" />
     <ClInclude Include="include\firmi2c.h" />
     <ClInclude Include="include\firmio.h" />
+    <ClInclude Include="include\firmlcd.h" />
     <ClInclude Include="include\firmserial.h" />
     <ClInclude Include="include\firmstepper.h" />
   </ItemGroup>

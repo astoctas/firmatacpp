@@ -19,6 +19,9 @@
     <ClCompile Include="src\firmaccelstepper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\firmlcd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\firmstepper.h">
@@ -49,6 +52,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\firmaccelstepper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\firmlcd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

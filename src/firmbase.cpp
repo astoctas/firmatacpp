@@ -440,7 +440,7 @@ namespace firmata {
 		for (uint8_t pin = 0; pin < 128; pin++) {
 			if (pins[pin].analog_channel < 127) {
 				pins[pin].mode = MODE_ANALOG;
-//				standardCommand({ FIRMATA_SET_PIN_MODE, pin, MODE_ANALOG });
+				standardCommand({ FIRMATA_SET_PIN_MODE, pin, MODE_ANALOG });
 			}
 		}
 	}

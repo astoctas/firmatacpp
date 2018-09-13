@@ -64,7 +64,6 @@ namespace firmata {
 		if (command == FIRMATA_STEPPER_REQUEST) {
 
 			uint8_t deviceNum = data[0];
-			finishStepperCallback(deviceNum, this);
 
 			return true;
 		}
