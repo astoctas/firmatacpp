@@ -29,6 +29,7 @@ namespace firmata {
 		void digitalWrite(uint8_t pin, uint8_t value);
 		void analogWrite(uint8_t pin, uint32_t value);
 		void analogWrite(const std::string& channel, uint32_t value);
+		void analogWriteExtended(uint8_t pin, uint32_t value);
 
 		uint8_t digitalRead(uint8_t pin);
 		uint32_t analogRead(uint8_t pin);
@@ -60,7 +61,6 @@ namespace firmata {
 
 		std::string stringFromBytes(std::vector<uint8_t>::iterator begin, std::vector<uint8_t>::iterator end);
 
-		void analogWriteExtended(uint8_t pin, uint32_t value);
 		void savePartialBuffer(std::vector<uint8_t>::iterator begin, std::vector<uint8_t>::iterator end);
 		std::vector<uint8_t> saved_buffer;
 
