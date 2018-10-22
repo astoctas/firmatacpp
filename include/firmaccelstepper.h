@@ -37,7 +37,7 @@ namespace firmata {
 		void enableOutputsStepper(uint8_t deviceNum);
 		void disableOutputsStepper(uint8_t deviceNum);
 
-		uint8_t getStatus(uint8_t deviceNum);
+		uint8_t stepperStatus(uint8_t deviceNum);
 	protected:
 		virtual bool handleSysex(uint8_t command, std::vector<uint8_t> data);
 

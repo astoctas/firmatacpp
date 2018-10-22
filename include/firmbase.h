@@ -44,6 +44,7 @@ namespace firmata {
 		void setSamplingInterval(uint32_t intervalms);
 
 		t_pin getPin(uint8_t pin);
+		bool pauseParse = false;
 
 	protected:
 		virtual bool handleSysex(uint8_t command, std::vector<uint8_t> data);

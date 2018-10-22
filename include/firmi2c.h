@@ -26,7 +26,7 @@ namespace firmata {
 		I2C(FirmIO *firmIO);
 		virtual ~I2C();
 
-		void configI2C(uint32_t delay);
+		void configI2C(uint32_t delay = 50);
 		void reportI2C(uint16_t address, uint16_t reg, uint32_t bytes);
 		std::vector<uint8_t> readI2C(uint16_t address, uint16_t reg = 0);
 		std::vector<uint8_t> readI2COnce(uint16_t address, uint16_t reg, uint32_t bytes);

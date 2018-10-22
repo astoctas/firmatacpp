@@ -36,7 +36,7 @@ namespace firmata {
 		initPins();
 		capabilityQuery();
 		analogMappingQuery();
-		pinStateQuery();
+		//pinStateQuery();
 	}
 
 	void Base::pinMode(uint8_t pin, uint8_t mode)
@@ -159,12 +159,15 @@ namespace firmata {
 		std::vector<uint8_t> parse_buffer(saved_buffer);
 		parse_buffer.insert(parse_buffer.end(), new_data.begin(), new_data.end());
 
-		//std::cout << new_data.size() << " : " << parse_buffer.size() << std::endl;
-
 		if (parse_buffer.size() == 0) return 0;
 
 		bool interrupted_command = false;
 		uint32_t completed_commands = 0;
+
+		/*
+		for (auto i = parse_buffer.begin(); i != parse_buffer.end(); ++i)
+			std::cout << std::to_string(*i) << ' ';
+		*/
 
 		for (int i = 0; i < parse_buffer.size(); i++) {
 			uint8_t whole_command, command_index, first_nibble;
@@ -366,6 +369,7 @@ namespace firmata {
 
 	bool Base::awaitResponse(uint8_t command, uint32_t timeout)
 	{
+		pauseParse = true;
 		bool succeeded = true;
 		std::chrono::time_point<std::chrono::system_clock> start, current;
 		start = std::chrono::system_clock::now();
@@ -385,11 +389,13 @@ namespace firmata {
 			result = parse(1);
 		} while (FIRMATA_FIRST_NIBBLE(result) != first_nibble);
 
+		pauseParse = false;
 		return succeeded;
 	}
 
 	bool Base::awaitSysexResponse(uint8_t sysexCommand, uint32_t timeout)
 	{
+		pauseParse = true;
 		bool succeeded = true;
 		std::chrono::time_point<std::chrono::system_clock> start, current;
 		start = std::chrono::system_clock::now();
@@ -410,6 +416,7 @@ namespace firmata {
 			result_command = result & 0x00FF;
 		} while (!(result_sysex == FIRMATA_START_SYSEX && result_command == sysexCommand));
 
+		pauseParse = false;
 		return succeeded;
 	}
 
@@ -450,7 +457,7 @@ namespace firmata {
 		for (uint8_t pin = 0; pin < 128; pin++) {
 			if (pins[pin].supported_modes.size()) {
 				sysexCommand({ FIRMATA_PIN_STATE_QUERY, pin });
-//				awaitSysexResponse(FIRMATA_PIN_STATE_RESPONSE, 100);
+				awaitSysexResponse(FIRMATA_PIN_STATE_RESPONSE, 100);
 			}
 		}
 	}

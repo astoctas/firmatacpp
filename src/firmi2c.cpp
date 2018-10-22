@@ -1,4 +1,5 @@
 #include "firmi2c.h"
+#include <iostream>
 
 namespace firmata {
 	I2C::I2C(FirmIO* firmIO) : Base(firmIO) {};
@@ -106,6 +107,7 @@ namespace firmata {
 
 	bool I2C::handleSysex(uint8_t command, std::vector<uint8_t> data)
 	{
+
 		if (command == FIRMATA_I2C_REPLY) {
 			std::vector<uint8_t> reply_buffer = {};
 

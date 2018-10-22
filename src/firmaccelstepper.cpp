@@ -57,7 +57,7 @@ namespace firmata {
 		sysexCommand({ FIRMATA_STEPPER_REQUEST, FIRMATA_STEPPER_ENABLE, deviceNum, 0x00 });
 	}
 
-	uint8_t AccelStepper::getStatus(uint8_t deviceNum) {
+	uint8_t AccelStepper::stepperStatus(uint8_t deviceNum) {
 		return status[deviceNum];
 	}
 
@@ -77,7 +77,7 @@ namespace firmata {
 
 			if (stepCommand == FIRMATA_STEPPER_MOVE_COMPLETE) {
 				uint8_t deviceNum = data[1];
-				disableOutputsStepper(deviceNum);
+				//disableOutputsStepper(deviceNum);
 				status[deviceNum] = 0;
 			}
 
