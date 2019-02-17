@@ -19,31 +19,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FE0F7016-321E-3C07-B1F7-E6E6D9B01808}</ProjectGuid>
+    <ProjectGuid>{145CD3BF-5607-32E8-984A-A3B103A73F00}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
-    <ProjectName>firmatacpp</ProjectName>
+    <ProjectName>ALL_BUILD</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
@@ -56,45 +56,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">firmatacpp.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">firmatacpp</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\Release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">firmatacpp.dir\Release\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">firmatacpp</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\MinSizeRel\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">firmatacpp.dir\MinSizeRel\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">firmatacpp</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\RelWithDebInfo\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">firmatacpp.dir\RelWithDebInfo\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">firmatacpp</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <Optimization>Disabled</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;LIBSHARED_AND_STATIC_STATIC_DEFINE;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;LIBSHARED_AND_STATIC_STATIC_DEFINE;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
     <Midl>
       <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -103,32 +70,8 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AssemblerListingLocation>Release/</AssemblerListingLocation>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <Optimization>MaxSpeed</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBSHARED_AND_STATIC_STATIC_DEFINE;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat>
-      </DebugInformationFormat>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBSHARED_AND_STATIC_STATIC_DEFINE;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
     <Midl>
       <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -137,32 +80,8 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <Optimization>MinSpace</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBSHARED_AND_STATIC_STATIC_DEFINE;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat>
-      </DebugInformationFormat>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBSHARED_AND_STATIC_STATIC_DEFINE;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
     <Midl>
       <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -171,31 +90,8 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <Optimization>MaxSpeed</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBSHARED_AND_STATIC_STATIC_DEFINE;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;LIBSHARED_AND_STATIC_STATIC_DEFINE;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
     <Midl>
       <AdditionalIncludeDirectories>C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include;C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -204,9 +100,6 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\CMakeLists.txt">
@@ -265,25 +158,35 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\src\firmbase.cpp" />
-    <ClCompile Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\src\firmi2c.cpp" />
-    <ClCompile Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\src\firmserial.cpp" />
-    <ClCompile Include="src\firmaccelstepper.cpp" />
-    <ClCompile Include="src\firmdc.cpp" />
-    <ClCompile Include="src\firmlcd.cpp" />
-    <ClCompile Include="src\firmstepper.cpp" />
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmata_constants.h" />
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmata.h" />
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmbase.h" />
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmi2c.h" />
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmio.h" />
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmserial.h" />
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\firmatacpp_export.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\ZERO_CHECK.vcxproj">
+      <Project>{EA25DAC9-EA94-3449-8B78-1A95FA888886}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\firmatacpp.vcxproj">
+      <Project>{46F29788-CDCF-39EA-837B-BB4AEB8F80DD}</Project>
+      <Name>firmatacpp</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\serial.vcxproj">
       <Project>{BCA9A3EF-DF37-3DC2-B21F-701FDEB09A94}</Project>
       <Name>serial</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\vendor\serial\serial_example.vcxproj">
+      <Project>{2A5B1FD8-E811-3DF8-B3EB-534A5BF62AB2}</Project>
+      <Name>serial_example</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\simple_example.vcxproj">
+      <Project>{E3206890-494C-3435-BBDE-37450B114274}</Project>
+      <Name>simple_example</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>

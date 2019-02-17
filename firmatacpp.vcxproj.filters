@@ -1,72 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\firmstepper.cpp">
+    <ClCompile Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\src\firmbase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\firmbase.cpp">
+    <ClCompile Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\src\firmi2c.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\firmi2c.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\firmserial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\firmdc.cpp">
+    <ClCompile Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\src\firmserial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\firmaccelstepper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\firmdc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="src\firmlcd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\firmstepper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\firmstepper.h">
+    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmata_constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\firmata.h">
+    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmata.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\firmata_constants.h">
+    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmbase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\firmbase.h">
+    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmi2c.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\firmi2c.h">
+    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\firmio.h">
+    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmserial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\firmserial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="firmatacpp_export.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\firmdc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\firmaccelstepper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\firmlcd.h">
+    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\firmatacpp_export.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\firmatacpp\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{07D88B2B-5ADA-39A2-A971-658E6CF6A63A}</UniqueIdentifier>
+      <UniqueIdentifier>{1830738D-11D1-31CF-A23C-3880B6FABBA7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{03845474-33C4-3CCC-994C-60D7C5F3F7EB}</UniqueIdentifier>
+      <UniqueIdentifier>{4C5FBEF0-68F5-3192-8EA0-4D92A5453E70}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

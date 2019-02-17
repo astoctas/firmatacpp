@@ -1,4 +1,4 @@
-# Install script for directory: C:/Test/firmatacpp
+# Install script for directory: C:/Users/Alejandro/Documents/Interfaz2.0/Software/VisualStudio/firmatacpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Test/firmatacpp/vendor/serial/cmake_install.cmake")
+  include("C:/Users/Alejandro/Documents/Interfaz2.0/Software/VisualStudio/firmatacpp/vendor/serial/cmake_install.cmake")
 
 endif()
 
@@ -46,5 +46,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Test/firmatacpp/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Alejandro/Documents/Interfaz2.0/Software/VisualStudio/firmatacpp/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

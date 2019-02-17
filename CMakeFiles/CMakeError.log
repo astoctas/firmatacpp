@@ -1,0 +1,64 @@
+Performing C++ SOURCE FILE Test COMPILER_HAS_DEPRECATED_ATTR failed with the following output:
+Change Dir: C:/Test/firmatacpp/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_84995.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine versión 15.7.180.61344 para .NET Framework
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Compilación iniciada a las 17/07/2018 21:17:36.
+Proyecto "C:\Test\firmatacpp\CMakeFiles\CMakeTmp\cmTC_84995.vcxproj" en nodo 1 (destinos predeterminados).
+PrepareForBuild:
+  Creando directorio "cmTC_84995.dir\Debug\".
+  Creando directorio "C:\Test\firmatacpp\CMakeFiles\CMakeTmp\Debug\".
+  Creando directorio "cmTC_84995.dir\Debug\cmTC_84995.tlog\".
+InitializeBuildStatus:
+  Se creará "cmTC_84995.dir\Debug\cmTC_84995.tlog\unsuccessfulbuild" porque se especificó "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.14.26428\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D COMPILER_HAS_DEPRECATED_ATTR /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_84995.dir\Debug\\" /Fd"cmTC_84995.dir\Debug\vc141.pdb" /Gd /TP /analyze- /FC /errorReport:queue C:\Test\firmatacpp\CMakeFiles\CMakeTmp\src.cxx
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.14.26433 para x86
+  (C) Microsoft Corporation. Todos los derechos reservados.
+  
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D COMPILER_HAS_DEPRECATED_ATTR /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_84995.dir\Debug\\" /Fd"cmTC_84995.dir\Debug\vc141.pdb" /Gd /TP /analyze- /FC /errorReport:queue C:\Test\firmatacpp\CMakeFiles\CMakeTmp\src.cxx
+  
+c:\test\firmatacpp\cmakefiles\cmaketmp\src.cxx(1): error C2065: '__deprecated__': identificador no declarado [C:\Test\firmatacpp\CMakeFiles\CMakeTmp\cmTC_84995.vcxproj]
+c:\test\firmatacpp\cmakefiles\cmaketmp\src.cxx(1): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int [C:\Test\firmatacpp\CMakeFiles\CMakeTmp\cmTC_84995.vcxproj]
+c:\test\firmatacpp\cmakefiles\cmaketmp\src.cxx(1): error C2448: '__attribute__': el inicializador de estilo de función parece ser una definición de función [C:\Test\firmatacpp\CMakeFiles\CMakeTmp\cmTC_84995.vcxproj]
+Compilación del proyecto terminada "C:\Test\firmatacpp\CMakeFiles\CMakeTmp\cmTC_84995.vcxproj" (destinos predeterminados) -- ERROR.
+
+ERROR al compilar.
+
+"C:\Test\firmatacpp\CMakeFiles\CMakeTmp\cmTC_84995.vcxproj" (destino predeterminado) (1) ->
+(ClCompile destino) -> 
+  c:\test\firmatacpp\cmakefiles\cmaketmp\src.cxx(1): error C2065: '__deprecated__': identificador no declarado [C:\Test\firmatacpp\CMakeFiles\CMakeTmp\cmTC_84995.vcxproj]
+  c:\test\firmatacpp\cmakefiles\cmaketmp\src.cxx(1): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int [C:\Test\firmatacpp\CMakeFiles\CMakeTmp\cmTC_84995.vcxproj]
+  c:\test\firmatacpp\cmakefiles\cmaketmp\src.cxx(1): error C2448: '__attribute__': el inicializador de estilo de función parece ser una definición de función [C:\Test\firmatacpp\CMakeFiles\CMakeTmp\cmTC_84995.vcxproj]
+
+    0 Advertencia(s)
+    3 Errores
+
+Tiempo transcurrido 00:00:03.23
+
+Source file was:
+__attribute__((__deprecated__)) int somefunc() { return 0; }
+    int main() { return somefunc();}
+Performing C++ SOURCE FILE Test COMPILER_HAS_DEPRECATED_ATTR failed with the following output:
+Change Dir: C:/Users/Alejandro/Documents/Interfaz2.0/Software/VisualStudio/firmatacpp/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_bfbf4.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
+Microsoft (R) Build Engine versión 15.9.21+g9802d43bc3 para .NET Framework
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+  Compilador de optimización de C/C++ de Microsoft (R) versión 19.16.27025.1 para x86
+  (C) Microsoft Corporation. Todos los derechos reservados.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D COMPILER_HAS_DEPRECATED_ATTR /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_bfbf4.dir\Debug\\" /Fd"cmTC_bfbf4.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\CMakeFiles\CMakeTmp\src.cxx
+  src.cxx
+  
+C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\CMakeFiles\CMakeTmp\src.cxx(1): error C2065: '__deprecated__': identificador no declarado [C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\CMakeFiles\CMakeTmp\cmTC_bfbf4.vcxproj]
+C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\CMakeFiles\CMakeTmp\src.cxx(1): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int [C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\CMakeFiles\CMakeTmp\cmTC_bfbf4.vcxproj]
+C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\CMakeFiles\CMakeTmp\src.cxx(1): error C2448: '__attribute__': el inicializador de estilo de función parece ser una definición de función [C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\CMakeFiles\CMakeTmp\cmTC_bfbf4.vcxproj]
+
+Source file was:
+__attribute__((__deprecated__)) int somefunc() { return 0; }
+    int main() { return somefunc();}
