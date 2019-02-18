@@ -4,12 +4,6 @@
     <ClCompile Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\src\firmbase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\src\firmi2c.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\src\firmserial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\firmaccelstepper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -22,32 +16,35 @@
     <ClCompile Include="src\firmstepper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\firmi2c.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\firmserial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmata_constants.h">
+    <ClInclude Include="include\firmata.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmata.h">
+    <ClInclude Include="include\firmata_constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmbase.h">
+    <ClInclude Include="firmatacpp_export.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmi2c.h">
+    <ClInclude Include="include\firmbase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmio.h">
+    <ClInclude Include="include\firmi2c.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\include\firmserial.h">
+    <ClInclude Include="include\firmio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\firmatacpp_export.h">
+    <ClInclude Include="include\firmserial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="C:\Users\Alejandro\Documents\Interfaz2.0\Software\VisualStudio\firmatacpp\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -56,5 +53,8 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{4C5FBEF0-68F5-3192-8EA0-4D92A5453E70}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
 </Project>
