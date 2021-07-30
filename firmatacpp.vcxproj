@@ -215,14 +215,20 @@
     <ClCompile Include="src\firmaccelstepper.cpp" />
     <ClCompile Include="src\firmdc.cpp" />
     <ClCompile Include="src\firmlcd.cpp" />
+    <ClCompile Include="src\firmservo.cpp" />
     <ClCompile Include="src\firmstepper.cpp" />
+    <ClInclude Include="include\firmaccelstepper.h" />
     <ClInclude Include="include\firmata_constants.h" />
     <ClInclude Include="include\firmata.h" />
     <ClInclude Include="include\firmbase.h" />
+    <ClInclude Include="include\firmdc.h" />
     <ClInclude Include="include\firmi2c.h" />
     <ClInclude Include="include\firmio.h" />
+    <ClInclude Include="include\firmlcd.h" />
     <ClInclude Include="include\firmserial.h" />
     <ClInclude Include="firmatacpp_export.h" />
+    <ClInclude Include="include\firmservo.h" />
+    <ClInclude Include="include\firmstepper.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />

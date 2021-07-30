@@ -13,7 +13,11 @@ namespace firmata {
 	{
 		m_firmIO->open();
 		standardCommand({ FIRMATA_REPORT_VERSION });
+		_sleep(2000);
 		is_ready = awaitResponse(FIRMATA_REPORT_VERSION);
+#if _DEBUG
+		cout << "Ready: " << is_ready << endl;
+#endif
 		if (is_ready) {
 			init();
 		}
@@ -164,10 +168,10 @@ namespace firmata {
 		bool interrupted_command = false;
 		uint32_t completed_commands = 0;
 
-		/*
+#if _DEBUG
 		for (auto i = parse_buffer.begin(); i != parse_buffer.end(); ++i)
 			std::cout << std::to_string(*i) << ' ';
-		*/
+#endif		
 
 		for (int i = 0; i < parse_buffer.size(); i++) {
 			uint8_t whole_command, command_index, first_nibble;
