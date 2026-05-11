@@ -48,5 +48,13 @@ namespace firmata {
 		sysexCommand({ FIRMATA_LCD_REQUEST , FIRMATA_LCD_CLEAR });
 	}
 
+	void LCD::silenceLCD() {
+		sysexCommand({ FIRMATA_LCD_REQUEST , FIRMATA_LCD_SILENCE });
+	}
+
+	void LCD::verboseLCD() {
+		sysexCommand({ FIRMATA_LCD_REQUEST , FIRMATA_LCD_VERBOSE });
+	}
+
 
 }

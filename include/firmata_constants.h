@@ -58,7 +58,7 @@
 #define FIRMATA_SYSEX_REALTIME          0x7F // MIDI Reserved for realtime messages
 
 #define FIRMATA_MAX						0x3FFF
-#define FIRMATA_MSG_LEN					1024
+#define FIRMATA_MSG_LEN					2048
 
 typedef struct		s_pin
 {
