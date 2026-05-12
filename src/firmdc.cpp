@@ -35,7 +35,10 @@ namespace firmata {
 	};
 
 	void DC::DCsetSpeed(uint8_t deviceNum, uint8_t speed) {
-		sysexCommand({ FIRMATA_DC_REQUEST, FIRMATA_DC_SPEED, deviceNum, speed });
+		uint8_t speed_lsb = FIRMATA_LSB(speed);
+		uint8_t speed_msb = FIRMATA_MSB(speed);
+
+		sysexCommand({ FIRMATA_DC_REQUEST, FIRMATA_DC_SPEED, deviceNum, speed_lsb, speed_msb });
 	};
 
 

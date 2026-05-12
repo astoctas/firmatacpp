@@ -14,6 +14,10 @@ using namespace std;
 #define FIRMATA_LCD_PRINT 0x00
 #define FIRMATA_LCD_PUSH  0x01
 #define FIRMATA_LCD_CLEAR 0x02
+#define FIRMATA_LCD_SILENCE 0x03
+#define FIRMATA_LCD_VERBOSE 0x04
+
+
 
 
 namespace firmata {
@@ -26,6 +30,8 @@ namespace firmata {
 		void printLCD(uint8_t row, const char* str);
 		void pushLCD(const char* str);
 		void clearLCD();
+		void silenceLCD();
+		void verboseLCD();
 	protected:
 //		virtual bool handleSysex(uint8_t command, std::vector<uint8_t> data);
 

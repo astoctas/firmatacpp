@@ -51,7 +51,7 @@ namespace firmata {
 		virtual bool handleString(std::string data);
 
 		bool awaitResponse(uint8_t command, uint32_t timeout = 1000);
-		bool awaitSysexResponse(uint8_t sysexCommand, uint32_t timeout = 1000);
+		bool awaitSysexResponse(uint8_t sysexCommand, uint32_t timeout = 2000);
 
 	private:
 		void initPins();

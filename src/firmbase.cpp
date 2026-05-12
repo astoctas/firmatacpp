@@ -4,6 +4,12 @@
 #include <string>
 #include <iostream>
 
+#include <windows.h> 
+// TODO: mencionar aqu� los encabezados adicionales que el programa necesita
+#include <iostream>
+#include <string>
+#include <vector>
+#include "winuser.h"
 using namespace std;
 
 namespace firmata {
@@ -12,11 +18,10 @@ namespace firmata {
 		: m_firmIO(firmIO), name(""), major_version(0), minor_version(0), is_ready(false)
 	{
 		m_firmIO->open();
-		standardCommand({ FIRMATA_REPORT_VERSION });
-		is_ready = awaitResponse(FIRMATA_REPORT_VERSION);
-		if (is_ready) {
-			init();
-		}
+		//standardCommand({ FIRMATA_REPORT_VERSION });
+		//is_ready = awaitResponse(FIRMATA_REPORT_VERSION);
+		init();
+
 	}
 
 	Base::~Base()
@@ -32,11 +37,13 @@ namespace firmata {
 
 	void Base::init()
 	{
-		reportFirmware();
+
+		//reportFirmware();
 		initPins();
-		capabilityQuery();
+		//Sleep(2000);
+		//capabilityQuery();
 		analogMappingQuery();
-		//pinStateQuery();
+		pinStateQuery();
 	}
 
 	void Base::pinMode(uint8_t pin, uint8_t mode)
@@ -111,7 +118,7 @@ namespace firmata {
 				return pins[pin].value;
 			}
 		}
-		return 0;
+		return -1;
 	}
 
 	void Base::reportAnalog(uint8_t channel, uint8_t enable)
@@ -158,7 +165,6 @@ namespace firmata {
 		std::vector<uint8_t> new_data = m_firmIO->read(FIRMATA_MSG_LEN);
 		std::vector<uint8_t> parse_buffer(saved_buffer);
 		parse_buffer.insert(parse_buffer.end(), new_data.begin(), new_data.end());
-
 		if (parse_buffer.size() == 0) return 0;
 
 		bool interrupted_command = false;
@@ -169,8 +175,9 @@ namespace firmata {
 			std::cout << std::to_string(*i) << ' ';
 		*/
 
-		for (int i = 0; i < parse_buffer.size(); i++) {
-			uint8_t whole_command, command_index, first_nibble;
+		for (size_t i = 0; i < parse_buffer.size(); i++) {
+			uint8_t whole_command, first_nibble;
+			size_t command_index;
 			uint16_t last_completed = 0;
 
 			command_index = i;
@@ -229,9 +236,10 @@ namespace firmata {
 				}
 				break;
 			}
-
+			
 			switch (whole_command) {
 			case(FIRMATA_REPORT_VERSION) :
+				/*
 				if (parse_buffer.size() < i + 3) {
 					interrupted_command = true;
 				}
@@ -242,6 +250,7 @@ namespace firmata {
 					completed_commands++;
 					last_completed = whole_command;
 				}
+				*/
 				break;
 			case(FIRMATA_START_SYSEX) :
 				if (parse_buffer.size() < i + 2) {
@@ -265,7 +274,7 @@ namespace firmata {
 				}
 				break;
 			}
-
+			
 			if (interrupted_command) {
 				savePartialBuffer(parse_buffer.begin() + command_index, parse_buffer.end());
 				return last_completed;
@@ -287,6 +296,7 @@ namespace firmata {
 
 		switch (subcommand) {
 		case(FIRMATA_REPORT_FIRMWARE) :
+			if (data.size() < 2) return false;
 			major_version = data[0];
 			minor_version = data[1];
 
@@ -306,6 +316,7 @@ namespace firmata {
 
 			pin = 0;
 			for (uint8_t byte : data) {
+				if (pin >= 128) break;
 				if (byte == 127) {
 					pin++;
 					is_mode_byte = true;
@@ -323,6 +334,7 @@ namespace firmata {
 			return true;
 
 		case(FIRMATA_PIN_STATE_RESPONSE) :
+			if (data.size() < 3 || data[0] >= 128) return false;
 			pin = data[0];
 			pins[pin].mode = data[1];
 			pins[pin].value = data[2];
@@ -331,7 +343,8 @@ namespace firmata {
 			return true;
 
 		case(FIRMATA_ANALOG_MAPPING_RESPONSE) :
-			for (pin = 0; pin < data.size(); pin++) {
+			//MessageBox(NULL, "FIRMATA_ANALOG_MAPPING_RESPONSE", "INTERFAZ", 0);
+			for (pin = 0; pin < data.size() && pin < 128; pin++) {
 				pins[pin].analog_channel = data[pin];
 			}
 			return true;
@@ -433,17 +446,17 @@ namespace firmata {
 
 	void Base::reportFirmware() {
 		sysexCommand(FIRMATA_REPORT_FIRMWARE);
-		is_ready = awaitSysexResponse(FIRMATA_REPORT_FIRMWARE);
+		is_ready = awaitSysexResponse(FIRMATA_REPORT_FIRMWARE, 100);
 	}
 
 	void Base::capabilityQuery() {
 		sysexCommand(FIRMATA_CAPABILITY_QUERY);
-		awaitSysexResponse(FIRMATA_CAPABILITY_RESPONSE);
+		awaitSysexResponse(FIRMATA_CAPABILITY_RESPONSE, 100);
 	}
 
 	void Base::analogMappingQuery() {
 		sysexCommand(FIRMATA_ANALOG_MAPPING_QUERY);
-		awaitSysexResponse(FIRMATA_ANALOG_MAPPING_RESPONSE);
+		awaitSysexResponse(FIRMATA_ANALOG_MAPPING_RESPONSE, 250);
 		for (uint8_t pin = 0; pin < 128; pin++) {
 			if (pins[pin].analog_channel < 127) {
 				pins[pin].mode = MODE_ANALOG;
@@ -458,12 +471,14 @@ namespace firmata {
 			if (pins[pin].supported_modes.size()) {
 				sysexCommand({ FIRMATA_PIN_STATE_QUERY, pin });
 				awaitSysexResponse(FIRMATA_PIN_STATE_RESPONSE, 100);
+				Sleep(10);
 			}
 		}
 	}
 
 	t_pin Base::getPin(uint8_t pin) {
-		if (pin <= 128)
+		if (pin < 128)
 			return pins[pin];
+		return pins[0];
 	}
 }
